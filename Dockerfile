@@ -1,6 +1,6 @@
 FROM golang:1.13-alpine
 
-COPY ./backend /var/www/work-counter/backend
+COPY ./ /var/www/work-counter/backend
 
 WORKDIR /var/www/work-counter/backend
 
