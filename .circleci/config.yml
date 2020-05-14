@@ -1,0 +1,33 @@
+version: 2.1
+orbs:
+  aws-ecr: circleci/aws-ecr@6.8.2
+workflows:
+  build-and-push-dev:
+    jobs:
+      - aws-ecr/build-and-push-image:
+          context: work-counter-aws
+          repo: "${APP_PREFIX}-${APP_TYPE}"
+          tag: "develop"
+          filters:
+            branches:
+              only: develop
+  build-and-push-prod:
+    jobs:
+      - aws-ecr/build-and-push-image:
+          context: work-counter-aws
+          repo: "${APP_PREFIX}-${APP_TYPE}"
+          tag: "latest"
+          filters:
+            branches:
+              only: master
+  build-and-push-tag:
+    jobs:
+      - aws-ecr/build-and-push-image:
+          context: work-counter-aws
+          repo: "${APP_PREFIX}-${APP_TYPE}"
+          tag: "${CIRCLE_TAG}"
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^update-*/
