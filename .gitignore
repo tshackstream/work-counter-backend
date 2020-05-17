@@ -3,3 +3,4 @@ migration_at_local_env.sh
 .realize.yaml
 logs/*.log
 data/*.xlsx
+.env

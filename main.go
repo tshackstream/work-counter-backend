@@ -39,14 +39,14 @@ func main() {
 }
 
 func routing(e *echo.Echo) {
-	e.GET("/api/v1/projects/:project_id", projects.Get)
-	e.POST("/api/v1/projects", projects.CreateOrUpdate)
-	e.PUT("/api/v1/projects", projects.CreateOrUpdate)
-	e.GET("/api/v1/work_info/list/:project_id/:year/:month", work_info.List)
-	e.PUT("/api/v1/work_info", work_info.BulkUpdate)
-	e.GET("/api/v1/status/list", status.List)
-	e.GET("/api/v1/monthly_work_result/:project_id/:year/:month", monthly_work_results.Get)
-	e.POST("/api/v1/monthly_work_result", monthly_work_results.CreateOrUpdate)
-	e.GET("/api/v1/download/work_sheet/:project_id/:year/:month", download.WorkSheet)
-	e.GET("/api/v1/download/invoice/:project_id/:year/:month", download.Invoice)
+	e.GET("/api/projects/:project_id", projects.Get)
+	e.POST("/api/projects", projects.CreateOrUpdate)
+	e.PUT("/api/projects", projects.CreateOrUpdate)
+	e.GET("/api/work_info/list/:project_id/:year/:month", work_info.List)
+	e.PUT("/api/work_info", work_info.BulkUpdate)
+	e.GET("/api/status/list", status.List)
+	e.GET("/api/monthly_work_result/:project_id/:year/:month", monthly_work_results.Get)
+	e.POST("/api/monthly_work_result", monthly_work_results.CreateOrUpdate)
+	e.GET("/api/download/work_sheet/:project_id/:year/:month", download.WorkSheet)
+	e.GET("/api/download/invoice/:project_id/:year/:month", download.Invoice)
 }
