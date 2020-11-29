@@ -160,14 +160,14 @@ func makeWorkSheet(year string, month string, dateList map[int]work_info.DateInf
 		row.SetString(month+"/"+strconv.Itoa(dateObj.Day()), 2)
 		row.SetString(data.DayOfWeek, 3)
 
-		if data.Start != nil && data.Status != nil && *data.Status != 2 {
-			row.SetString(*data.Start, 4)
+		if data.StartHour != nil && data.StartMinute != nil && data.Status != nil && *data.Status != 2 {
+			row.SetString(*data.StartHour+":"+*data.StartMinute, 4)
 		}
-		if data.End != nil && data.Status != nil && *data.Status != 2 {
-			row.SetString(*data.End, 5)
+		if data.EndHour != nil && data.EndMinute != nil && data.Status != nil && *data.Status != 2 {
+			row.SetString(*data.EndHour+":"+*data.EndMinute, 5)
 		}
-		if data.Rest != nil && data.Status != nil && *data.Status != 2 {
-			row.SetString(*data.Rest, 6)
+		if data.RestHour != nil && data.EndMinute != nil && data.Status != nil && *data.Status != 2 {
+			row.SetString(*data.RestHour+":"+*data.RestMinute, 6)
 		}
 		if data.Total != nil && data.Status != nil && *data.Status != 2 {
 			row.SetString(*data.Total, 7)

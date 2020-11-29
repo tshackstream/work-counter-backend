@@ -35,7 +35,8 @@ func main() {
 
 	routing(e)
 	port := os.Getenv("ECHO_PORT")
-	e.Logger.Fatal(e.Start(":" + port))
+	host := os.Getenv("ECHO_HOST")
+	e.Logger.Fatal(e.Start(host + ":" + port))
 }
 
 func routing(e *echo.Echo) {

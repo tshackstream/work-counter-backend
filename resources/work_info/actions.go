@@ -18,9 +18,12 @@ type DateInfo struct {
 	IsHoliday   bool    `json:"is_holiday"`
 	HolidayNote string  `json:"holiday_note"`
 	Status      *int    `json:"status"`
-	Start       *string `json:"start"`
-	End         *string `json:"end"`
-	Rest        *string `json:"rest"`
+	StartHour   *string `json:"start_hour" form:"start_hour"`
+	StartMinute *string `json:"start_minute" form:"start_minute"`
+	EndHour     *string `json:"end_hour" form:"end_hour"`
+	EndMinute   *string `json:"end_minute" form:"end_minute"`
+	RestHour    *string `json:"rest_hour" form:"rest_hour"`
+	RestMinute  *string `json:"rest_minute" form:"rest_minute"`
 	Total       *string `json:"total"`
 	Note        *string `json:"note"`
 }
@@ -125,9 +128,12 @@ func GetMonthInfo(year string, month string, projectId string) (map[int]DateInfo
 		}
 
 		dateInfo.Status = datum.Status
-		dateInfo.Start = datum.Start
-		dateInfo.End = datum.End
-		dateInfo.Rest = datum.Rest
+		dateInfo.StartHour = datum.StartHour
+		dateInfo.StartMinute = datum.StartMinute
+		dateInfo.EndHour = datum.EndHour
+		dateInfo.EndMinute = datum.EndMinute
+		dateInfo.RestHour = datum.RestHour
+		dateInfo.RestMinute = datum.RestMinute
 		dateInfo.Total = datum.Total
 		dateInfo.Note = datum.Note
 
